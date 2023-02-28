@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { Card } from "../../components/card";
 import Header from "../../components/header";
 import marvelApi from "../../service/MarvelApi";
+import { Loading } from "../../components/loading";
 
 interface RespoData {
   id: string;
@@ -16,12 +17,14 @@ interface RespoData {
 
 const Home: React.FC = () => {
   const [comics, setComics] = useState<RespoData[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     marvelApi
       .get("./comics")
       .then((res) => {
         setComics(res.data.data.results);
+        setLoading(true);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -44,9 +47,14 @@ const Home: React.FC = () => {
     <>
       <Header />
       <S.Container>
-        {comics.map((comic, index) => {
-          return <Card data={comic} key={index} />;
-        })}
+        {loading ? (
+          comics.map((comic, index) => {
+            return <Card data={comic} key={index} />;
+          })
+        ) : (
+          <Loading />
+        )}
+
         <S.BtnMore onClick={handleMore}>More Comics</S.BtnMore>
       </S.Container>
     </>
