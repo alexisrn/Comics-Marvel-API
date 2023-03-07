@@ -4,6 +4,7 @@ import { Card } from "../../components/card";
 import Header from "../../components/header";
 import marvelApi from "../../service/MarvelApi";
 import { Loading } from "../../components/loading";
+import Teste from "../../components/teste";
 
 interface RespoData {
   id: string;
@@ -23,7 +24,9 @@ const Home: React.FC = () => {
     marvelApi
       .get("./comics")
       .then((res) => {
+        console.log(res.data.data);
         setComics(res.data.data.results);
+
         setLoading(true);
       })
       .catch((err) => console.log(err));
@@ -45,20 +48,22 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header />
       <S.Container>
-        {loading ? (
-          comics.map((comic, index) => {
-            return <Card data={comic} key={index} />;
-          })
-        ) : (
-          <Loading />
-        )}
-
-        <S.BtnMore onClick={handleMore}>More Comics</S.BtnMore>
+        <Teste />
+        <S.BtnP>
+          <S.BtnMore onClick={handleMore}>More Comics</S.BtnMore>
+        </S.BtnP>
       </S.Container>
     </>
   );
 };
 
 export default Home;
+
+/*     {loading ? (
+          comics.map((comic, index) => {
+            return <Card data={comic} key={index} />;
+          })
+        ) : (
+          <Loading />
+        )} */

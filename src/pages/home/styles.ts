@@ -7,6 +7,14 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+
+  p {
+    width: 100vw;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 30px;
+  }
   @media (max-width: 640px) {
   }
 `;
@@ -27,4 +35,9 @@ export const BtnMore = styled.button`
 
   font-size: 16px;
   font-family: "Passion One", cursive;
+`;
+
+export const BtnP = styled.p`
+  display: flex;
+  justify-content: center;
 `;

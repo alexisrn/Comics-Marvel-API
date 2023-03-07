@@ -11,7 +11,7 @@ export const Card = ({ data }: any) => {
           />
         </S.ImgCtn>
         <S.Text>
-          <p>{data.title}</p>
+          <span>{data.title}</span>
         </S.Text>
       </S.Container>
     </>
