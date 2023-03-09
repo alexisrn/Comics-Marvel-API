@@ -41,7 +41,6 @@ export const ImgCtn = styled.div`
 `;
 
 export const Text = styled.div`
-  padding-top: 3px;
   text-align: center;
 
   span {

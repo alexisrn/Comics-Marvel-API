@@ -48,8 +48,16 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <Header />
       <S.Container>
-        <Teste />
+        {loading ? (
+          comics.map((comic, index) => {
+            return <Card data={comic} key={index} />;
+          })
+        ) : (
+          <Loading />
+        )}
+
         <S.BtnP>
           <S.BtnMore onClick={handleMore}>More Comics</S.BtnMore>
         </S.BtnP>

@@ -13,6 +13,8 @@ export const Container = styled.div`
   background-size: cover;
   background-position: -1px -200px;
 
+  margin-bottom: 10px;
+
   img {
     width: 12%;
     padding: 100px;
